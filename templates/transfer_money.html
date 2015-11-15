@@ -1,0 +1,93 @@
+{% extends 'base.html' %}
+
+{% block title %} Transfer money {% endblock %}
+{% block style %}
+    <style type="text/css">
+        .transfer_form {
+            text-align: center;
+            font-size: 18px;
+            background: #f8f7f2;
+            height: 470px;
+            width: 400px;
+            border: 1px solid #d1d5d8;
+            border-bottom: 10px solid #009933;
+            margin: 15% auto;
+        }
+
+        .form_title {
+            margin-top: 10px;
+            font-weight: 600;
+        }
+
+        form {
+            margin-top: 20px;
+            width: 400px;
+        }
+
+        ul.errorlist {
+            margin: 0;
+            padding: 0;
+        }
+        .errorlist li {
+            background-color: #CC0000;
+            color: white;
+            display: block;
+            /*border:1px dotted #00CC33;*/
+            font-size: 12px;
+            margin: 0 0 3px;
+            /*padding: 4px 5px;*/
+        }
+
+        .img_title {
+            text-align: center;
+            margin: 3% 0 auto auto;
+            /* position: relative;
+             z-index: 1;
+             */
+        }
+
+        input.b1 {
+            /*margin: 20px 0 0 35%;*/
+            width: 120px;
+            font-size: 16px
+        }
+
+    .errors_message{
+        margin-top: 5px;
+        font-size: 16px;
+        border: 1px dotted #f03d31;
+        color: red;
+        background-color: #ffffcc;
+    }
+
+
+    </style>
+{% endblock %}
+{% block content %}
+
+<div class="transfer_form">
+    <div class="form_title">Send money</div>
+    <div class="img_title">
+        <img src="http://st.gdefon.ru/wallpapers_original/wallpapers/320556_lednikovij-period_-belka_-orex_film_filmy_kino_1920x1080_%28www.GdeFon.ru%29.jpg" width="300" />
+    </div>
+    {% if error_text %}
+        <div class="errors_message">
+            {{ error_text }}
+            <br>
+            {{ balance }}
+        </div>
+    {% endif %}
+
+
+
+    <form action="" method='post'>
+        {% csrf_token %}
+        <table>
+            {{  form.as_table }}
+        </table>
+        <input type="submit" class="b1" value='Send'>
+        <br>
+        <p> <a href="/">Back</a></p>
+    </form>
+</div>
+{% endblock %}

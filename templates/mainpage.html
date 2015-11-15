@@ -1,0 +1,148 @@
+{% extends 'base.html' %}
+
+{% block title %} Main page {% endblock %}
+{% block style %}
+    <style type="text/css">
+
+
+        .main_part
+        {
+
+            width: 70%;
+            margin: 15%;
+            font-size: 18px;
+            background: #f8f7f2;
+            border: 1px solid #d1d5d8;
+            /*border-bottom: 10px solid #009933;*/
+        }
+
+        .hello {
+            border: 1px solid #d1d5d8;
+            font-weight: 400;
+            text-align: center;
+        }
+
+
+        .bonus_form {
+            text-align: center;
+            font-size: 18px;
+            background: #f8f7f2;
+            height: 220px;
+            width: 370px;
+            border: 1px solid #d1d5d8;
+            border-bottom: 10px solid #009933;
+            margin: 0% auto;
+        }
+
+        .form_title {
+            margin-top: 10px;
+            font-weight: 600;
+        }
+
+        form {
+            margin-top: 40px;
+            width: 370px;
+        }
+
+        ul {
+            list-style: square outside; /* Квадратные маркеры */
+            /* Маркеры размещаются за
+               пределами текстового блока */
+        }
+
+        ul.errorlist {
+            margin: 0;
+            padding: 0;
+        }
+        .errorlist li {
+            background-color: #CC0000;
+            color: white;
+            display: block;
+            /*border:1px dotted #00CC33;*/
+            font-size: 12px;
+            margin: 0 0 3px;
+            padding: 4px 5px;
+        }
+
+        .transactions ul {
+            background-color: #FFFFCC;
+        }
+
+        .img_title {
+            text-align: center;
+            margin: 3% 0 auto auto;
+            /* position: relative;
+             z-index: 1;
+             */
+        }
+        input.b1 {
+            margin: 20px 0 0 35%;
+            width: 120px;
+            font-size: 16px
+        }
+
+    .transactions {
+        border: 1px solid #d1d5d8;
+        margin-top: 5px;
+
+    }
+        .actions {
+            border: 1px solid #d1d5d8;
+            margin-top: 5px;
+
+
+        }
+    .information {
+        border: 1px solid #d1d5d8;
+        text-align: center;
+        margin-top: 5px;
+    }
+    .title{
+        text-align: center;
+        font-weight: 600;
+    }
+
+    </style>
+{% endblock %}
+
+{% block content %}
+    <div class="main_part">
+        <div class="hello">Hello, <b>{{ user_name }}</b>!</div>
+
+    <div class="information">
+    <div class="title">Information:</div>
+    Your balance: <b>{{ balance }}</b> nuts. <br>
+    Number of your account: <b>{{ account_number }}</b>
+    </div>
+
+        <div class="actions">
+        <div class="title">You can:</div>
+<ul>
+ <li><a href="/moneytransfer/">Transfer money</a> </li>
+    <li><a href="/bonus/">Take bonus</a></li>
+    <li>See full list of operations with your account</li>
+    <li>Go to Profile</li>
+    <ul>    <li>Change e-mail</li>
+        <li>Change password</li>
+        <li>Change phone number</li>
+        <li>Close account</li></ul>
+
+    </ul>
+
+            Other fucntions is comming soon!
+    </div>
+
+
+    <div class="transactions">
+    <div class="title">Last 3 operations with your account:</div>
+    <ul>
+    {% for item in item_list %}
+    <li>{{ item }}</li>
+    {% endfor %}
+    </ul>
+    </div>
+
+<br>
+        <p> <a href="/logout/">Logout</a></p>
+    </div>
+{% endblock %}

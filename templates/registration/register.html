@@ -1,0 +1,89 @@
+{% extends 'base.html' %}
+
+{% block title %} Create user{% endblock %}
+{% block style %}
+
+    <style type="text/css">
+    .regisrationform{
+    /*text-align: center;*/
+    font-size: 18px;
+    background:#f8f7f2;
+    height: 250px;
+    width: 500px;
+    border: 1px solid #d1d5d8;
+    border-bottom: 10px solid #009933;
+    margin: 20% auto;
+    }
+
+
+        ul.errorlist {
+            margin: 0;
+            padding: 0;
+        }
+        .errorlist li {
+            background-color: #CC0000;
+            color: white;
+            display: block;
+            /*border:1px dotted #00CC33;*/
+            font-size: 10px;
+            margin: 0 0 3px;
+            padding: 4px 5px;
+        }
+
+
+    form {
+    margin-top: 10%;
+    width: 500px;
+    height: 200px;
+
+    }
+    p{
+    margin:  0px 0px 0px 10%;
+    }
+    input {
+    margin: 5px 5px 5px 150px;
+    }
+
+
+    input#id_password1 {
+    margin: 5px 5px 5px 152px;
+    }
+    input#id_password2 {
+    margin: 5px 5px 5px 55px;
+    }
+
+    input.b1 {
+    margin: 20px 0 0 35%;
+    width: 120px;
+    font-size: 16px
+    }
+
+    h1 {
+    font-size: 18px;
+    margin-top: 10px;
+    text-align: center;
+    }
+
+
+    span.helptext {
+    visibility:hidden;
+    position: absolute;
+    left:50px; top:20px;
+    border:1px dotted #f03d31;
+    padding:10px;
+    background-color: #ffffcc;
+    z-index: 1;
+    }
+        </style>
+
+{% endblock %}
+{% block content %}
+    <div class="regisrationform">
+    <h1>Step 1: Create user</h1>
+
+        <form action="" method="post">{% csrf_token %}
+        {{ form.as_p}}
+        <input type="submit" class="b1" value="Create user">
+        </form>
+    </div>
+{% endblock %}

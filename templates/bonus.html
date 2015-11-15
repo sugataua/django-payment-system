@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+
+{% block title %} {{ page_title }} {% endblock %}
+
+
+{% block style %}
+<style type="text/css">
+    .bonus_form {
+        text-align: center;
+        font-size: 18px;
+        background: #f8f7f2;
+        height: 400px;
+        width: 370px;
+        border: 1px solid #d1d5d8;
+        border-bottom: 10px solid #009933;
+        margin: 15% auto;
+    }
+
+    .form_title {
+        margin-top: 10px;
+        font-weight: 600;
+    }
+
+    form {
+        margin-top: 10px;
+        width: 370px;
+    }
+
+    ul.errorlist {
+        margin: 0;
+        padding: 0;
+    }
+    .errorlist li {
+        background-color: #CC0000;
+        color: white;
+        display: block;
+        /*border:1px dotted #00CC33;*/
+        font-size: 12px;
+        margin: 0 0 3px;
+        padding: 4px 5px;
+    }
+
+    .img_title {
+        text-align: center;
+        margin: 3% 0 0 0;
+       /* position: relative;
+        z-index: 1;
+        */
+    }
+    input.b1 {
+        /*margin: 20px 0 0 35%;*/
+        width: 180px;
+        font-size: 14px
+    }
+
+</style>
+{% endblock %}
+
+
+{% block content %}
+
+<div class="bonus_form">
+    <div class="form_title">{{ form_title }}</div>
+    <div class="img_title">
+        <img src="http://99px.ru/sstorage/56/2013/04/image_562504132005137035828.jpg" width="300" />
+    </div>
+{{ traa }}
+    <form action="" method="post">{% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" class="b1" value="Поповнити рахунок">
+
+        <p><a href="/">Back</a></p>
+
+</div>
+{% endblock %}

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Registration Form</title>
+</head>
+<body>
+<h1>Please write  all fields</h1>
+{% if form.errors %}
+<p style="color: red;">
+    Please change wrong fields {{ form.errors }}.
+</p>
+{% endif %}
+
+<p style="color: red;">
+{{ error_text }}
+</p>
+
+
+
+
+<form action="" method='post'>
+    {% csrf_token %}
+    <table>
+        {{  form.as_table }}
+    </table>
+    <input type="submit" value='Send'>
+</form>
+</body>
+</html>
